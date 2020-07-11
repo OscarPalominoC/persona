@@ -1,5 +1,10 @@
-class Persona:
+from validaciones import Validaciones
+
+class Persona(Validaciones):
     def __init__(self, nombre, apellido, correo):
+        # Invocando al método constructor de Validaciones
+        Validaciones.__init__(self, nombre, apellido, correo)
+        # Definiendo las propiedades de persona
         self._nombre = nombre
         self._apellido = apellido
         self._correo = correo
@@ -43,31 +48,15 @@ class Persona:
         Apellido: {self._apellido}
         Correo: {self._correo}""")
     
-    def ValidacionCorreo(self, nombre, apellido, correo):
-        "Verifica la validez de la información de la persona"
-        if self._nombre == nombre:
-            if self._apellido == apellido:
-                if self._correo == correo:
-                    print(f'Hola soy {nombre} {apellido} y mi correo es {correo}')
-                else:
-                    print('Información errónea')
-            else:
-                print('Información errónea')
-        else:
-            print('Información errónea')
-
-if __name__ == "__main__":
-    oscar = Persona('Oscar', 'Palomino', 'oscar@mail.com')
-    oscar.getNombre()
-    oscar.setNombre('oscar')
-    oscar.getNombre()
-    oscar.getApellido()
-    oscar.setApellido('palomino')
-    oscar.getApellido()
-    oscar.getCorreo()
-    oscar.setCorreo('oscar@palomino.com')
-    oscar.getCorreo()
-    oscar.MostrarTodos()
-    oscar.ValidacionCorreo('Pepito', 'Perez', 'Pepito@mail.com')
-    oscar.ValidacionCorreo('oscar', 'palomino', 'oscar@palomino.com')
-    
+    # def ValidacionCorreo(self, nombre, apellido, correo):
+    #     "Verifica la validez de la información de la persona"
+    #     if self._nombre == nombre:
+    #         if self._apellido == apellido:
+    #             if self._correo == correo:
+    #                 print(f'Hola soy {nombre} {apellido} y mi correo es {correo}')
+    #             else:
+    #                 print('Información errónea')
+    #         else:
+    #             print('Información errónea')
+    #     else:
+    #         print('Información errónea')
